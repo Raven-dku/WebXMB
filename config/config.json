@@ -1,0 +1,15 @@
+{
+  "audio": {
+    "volume": "1"
+  },
+  "controller": {
+    "enter": "0",
+    "cancel": "1",
+    "clear": "2",
+    "options": "3",
+    "down": "12",
+    "up": "13",
+    "left": "14",
+    "right": "15"
+  }
+}

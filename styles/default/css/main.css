@@ -1,0 +1,274 @@
+@font-face {
+    font-family: 'SCE-PS3 Rodin LATIN';
+    src: local('SCE-PS3 Rodin LATIN Bold'), local('SCEPS3RodinLATIN-Bold'),
+    url('http://localhost/WebXMB/styles/default/font/SCEPS3RodinLATIN-Bold.woff2') format('woff2'),
+    url('http://localhost/WebXMB/styles/default/font/SCEPS3RodinLATIN-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+.canvas {
+    z-index: -1;
+}
+/* Clock bar related */
+.XClockBar {
+    position: absolute;
+    top: 5%;
+    right: -405px;
+    color: white;
+    width: 400px;
+    font-family: 'SCE-PS3 Rodin LATIN';
+    color: white;
+    font-style: normal;
+    font-size: 10px;
+    opacity: 0.85;
+    height: 40px;
+}
+.XClockBarBorder {
+    background: radial-gradient( ellipse at 16.7% -10%, hsla(0, 0%, 100%, 0.13) 24%, hsla(0, 0%, 100%, 0.1) 25%, hsla(0, 0%, 100%, 0.04) 45%, hsla(0, 0%, 100%, 0.21) );
+    border-radius: 5px;
+    box-shadow: 0 2px 1px hsla(0, 0%, 100%, 0.44) inset, 0 -2px 1px hsla(250, 69.2%, 5.1%, 0.1) inset, 0 -2px 6px hsla(0, 0%, 100%, 0.25);
+}
+.XBarInner {
+    text-align: center;
+    float: right;
+    align-items: center;
+    margin-top: -5px;
+    margin-right: 20px;
+}
+.marquee {
+    width: 370px; /* the plugin works for responsive layouts so width is not necessary */
+    overflow: hidden;
+    font-family: 'SCE-PS3 Rodin LATIN';
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    opacity: 0.85;
+    display:none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+            "icon_bar clock_bar empty_bar"
+            "notification_bar notification_bar notification_bar";
+    width: 380px;
+}
+.notification_bar { grid-area: notification_bar; }
+.clock_bar {
+    grid-area: clock_bar;
+    text-align:right;
+}
+.empty_bar { grid-area: empty_bar; }
+.icon_bar { grid-area: icon_bar; }
+
+
+
+
+
+
+
+.form {
+    z-index:1;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.main_menu {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.menu_icon {
+    opacity: 0.45;
+    height: 64px;
+    width: 64px;
+}
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.caption {
+    display: block;
+    font-family: 'SCE-PS3 Rodin LATIN';
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+#xmb-contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.01);
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+#xmb {
+    width: 100px;
+    position: relative;
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 200px;
+    margin-right: 100px;
+    user-select: none;
+    z-index: 1;
+}
+#xmb > ul {
+    display: flex;
+    flex: 1 1 auto;
+    position: absolute;
+    top: 10%;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+}
+#xmb li,
+#xmb ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+
+}
+#xmb li.column > ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    margin-left: -30px;
+}
+#xmb .cell {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    margin: 10px;
+    opacity: 0.4;
+    position: absolute;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.cell_icon {
+
+}
+#xmb .cell.active {
+    opacity: 1;
+}
+#xmb .column:not(.active) .cell.submenu:not(.active) {
+    display: none;
+    opacity: 0;
+}
+#xmb .column {
+    transition: all 0.3s;
+    flex: 0 1 auto;
+    margin: 0 0;
+}
+#xmb .column.active {
+    flex: 1 1 auto;
+}
+.xmb-icon {
+    text-align: center;
+    width: 100%;
+    font-size: 65px;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+#xmb .column:not(.active) .cell label {
+    display:none;
+}
+#xmb label {
+    display: block;
+    text-align: center;
+    text-shadow: 0px 0px 5px #000000;
+    font-size: 20px;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-family: 'SCE-PS3 Rodin LATIN';
+    color: white;
+    font-style: normal;
+    font-size: 16px;
+    opacity: 0.85;
+    white-space: nowrap;
+
+}
+#xmb .cell.submenu,
+#xmb .cell.submenu > * {
+    line-height: 100px;
+}
+#xmb .submenu label:not(.subtitle) {
+    position: absolute;
+    top: 20px;
+    line-height: 50px;
+    margin-left: 150px;
+    font-size: 25px;
+}
+#xmb .submenu label:not(.subtitle):not(.active) {
+    position: absolute;
+    top: 20px;
+    line-height: 50px;
+    margin-left: 150px;
+    font-size: 25px;
+}
+#xmb .submenu label.subtitle {
+    position: absolute;
+    top: 55px;
+    margin-left: 0;
+    font-size: 15px;
+    line-height: 0;
+    white-space: nowrap;
+}
+#xmb .submenu label.subtitle:not(.active) {
+    display:none;
+}
+a {
+    color: inherit;
+    cursor: pointer;
+}
+
+.cell_icon:not(.active) {
+    height: 64px;
+    width: 64px;
+    margin-left: 40px;
+}
+#xmb .cellLabel:not(.active) {
+    margin-top: -10px;
+}
+body {
+    background-color: black;
+    font-family: cursive;
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    -moz-animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:  0 0 20px #fff, 0 0 30px #e1e1e1, 0 0 40px #e1e1e1, 0 0 50px #e1e1e1, 0 0 60px #e1e1e1, 0 0 70px #e1e1e1, 0 0 80px #e1e1e1;
+    }
+    to {
+        text-shadow:  0 0 10px #ffffff2e, 0 0 10px #ffffff21, 0 0 20px #e1e1e11f, 0 0 30px #e1e1e126, 0 0 40px #e1e1e117, 0 0 50px #e1e1e13d, 0 0 60px #e1e1e1;
+    }
+}
